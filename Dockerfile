@@ -35,6 +35,10 @@ RUN yes | /usr/local/bin/pecl install igbinary
 RUN yes | /usr/local/bin/pecl install redis
 RUN apk add imagemagick-dev
 RUN yes | /usr/local/bin/pecl install imagick
+RUN docker-php-ext-enable openswoole.so
+RUN docker-php-ext-enable igbinary.so
+RUN docker-php-ext-enable redis.so
+RUN docker-php-ext-enable imagick.so
 
 RUN ln -s /usr/local/bin/php /usr/bin/php
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
